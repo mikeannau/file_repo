@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<l7:Service xmlns:l7="http://ns.l7tech.com/2010/04/gateway-management" id="4248f7b23de26052cec97ed5593dff63" version="5">
+    <l7:ServiceDetail folderId="f26c6df71ccb3b7b9aa9252378bf5f72" id="4248f7b23de26052cec97ed5593dff63" version="5">
+        <l7:Name>XacuteWS</l7:Name>
+        <l7:Enabled>true</l7:Enabled>
+        <l7:ServiceMappings>
+            <l7:HttpMapping>
+                <l7:UrlPattern>/get_inbound_deliveries_detail</l7:UrlPattern>
+                <l7:Verbs>
+                    <l7:Verb>GET</l7:Verb>
+                    <l7:Verb>POST</l7:Verb>
+                    <l7:Verb>PUT</l7:Verb>
+                    <l7:Verb>PATCH</l7:Verb>
+                    <l7:Verb>DELETE</l7:Verb>
+                    <l7:Verb>HEAD</l7:Verb>
+                    <l7:Verb>OPTIONS</l7:Verb>
+                </l7:Verbs>
+            </l7:HttpMapping>
+            <l7:SoapMapping>
+                <l7:Lax>false</l7:Lax>
+            </l7:SoapMapping>
+        </l7:ServiceMappings>
+        <l7:Properties>
+            <l7:Property key="internal">
+                <l7:BooleanValue>false</l7:BooleanValue>
+            </l7:Property>
+            <l7:Property key="policyRevision">
+                <l7:LongValue>3</l7:LongValue>
+            </l7:Property>
+            <l7:Property key="soap">
+                <l7:BooleanValue>true</l7:BooleanValue>
+            </l7:Property>
+            <l7:Property key="soapVersion">
+                <l7:StringValue>1.1</l7:StringValue>
+            </l7:Property>
+            <l7:Property key="tracingEnabled">
+                <l7:BooleanValue>false</l7:BooleanValue>
+            </l7:Property>
+            <l7:Property key="wssProcessingEnabled">
+                <l7:BooleanValue>true</l7:BooleanValue>
+            </l7:Property>
+        </l7:Properties>
+    </l7:ServiceDetail>
+    <l7:Resources>
+        <l7:ResourceSet tag="policy">
+            <l7:Resource type="policy" version="2">&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;wsp:Policy xmlns:L7p="http://www.layer7tech.com/ws/policy" xmlns:wsp="http://schemas.xmlsoap.org/ws/2002/12/policy"&gt;
+    &lt;wsp:All wsp:Usage="Required"&gt;
+        &lt;L7p:FaultLevel&gt;
+            &lt;L7p:LevelInfo soapFaultLevel="included"&gt;
+                &lt;L7p:Level intValue="4"/&gt;
+            &lt;/L7p:LevelInfo&gt;
+        &lt;/L7p:FaultLevel&gt;
+        &lt;L7p:SslAssertion/&gt;
+        &lt;L7p:RequestXpathAssertion&gt;
+            &lt;L7p:VariablePrefix stringValue=""/&gt;
+            &lt;L7p:XpathExpression xpathExpressionValue="included"&gt;
+                &lt;L7p:Expression stringValue="/s:Envelope/s:Body/s0:XacuteRequest/s0:InputParams"/&gt;
+                &lt;L7p:Namespaces mapValue="included"&gt;
+                    &lt;L7p:entry&gt;
+                        &lt;L7p:key stringValue="s0"/&gt;
+                        &lt;L7p:value stringValue="http://www.sap.com/xMII"/&gt;
+                    &lt;/L7p:entry&gt;
+                    &lt;L7p:entry&gt;
+                        &lt;L7p:key stringValue="s11"/&gt;
+                        &lt;L7p:value stringValue="http://schemas.xmlsoap.org/soap/envelope/"/&gt;
+                    &lt;/L7p:entry&gt;
+                    &lt;L7p:entry&gt;
+                        &lt;L7p:key stringValue="s"/&gt;
+                        &lt;L7p:value stringValue="http://schemas.xmlsoap.org/soap/envelope/"/&gt;
+                    &lt;/L7p:entry&gt;
+                &lt;/L7p:Namespaces&gt;
+                &lt;L7p:XpathVersion xpathVersion="XPATH_1_0"/&gt;
+            &lt;/L7p:XpathExpression&gt;
+        &lt;/L7p:RequestXpathAssertion&gt;
+        &lt;L7p:HttpRoutingAssertion&gt;
+            &lt;L7p:ProtectedServiceUrl stringValue="http://eudrpmii0026.dc.ege.ds:50000/XMII/SOAPRunner/SC_AUTOMATION/API/RECEPTION/V1/TRANSACTION/GET_INBOUND_DELIVERIES_DETAILS"/&gt;
+            &lt;L7p:RequestHeaderRules httpPassthroughRuleSet="included"&gt;
+                &lt;L7p:ForwardAll booleanValue="true"/&gt;
+                &lt;L7p:Rules httpPassthroughRules="included"&gt;
+                    &lt;L7p:item httpPassthroughRule="included"&gt;
+                        &lt;L7p:Name stringValue="Cookie"/&gt;
+                    &lt;/L7p:item&gt;
+                    &lt;L7p:item httpPassthroughRule="included"&gt;
+                        &lt;L7p:Name stringValue="SOAPAction"/&gt;
+                    &lt;/L7p:item&gt;
+                &lt;/L7p:Rules&gt;
+            &lt;/L7p:RequestHeaderRules&gt;
+            &lt;L7p:RequestParamRules httpPassthroughRuleSet="included"&gt;
+                &lt;L7p:ForwardAll booleanValue="true"/&gt;
+                &lt;L7p:Rules httpPassthroughRules="included"/&gt;
+            &lt;/L7p:RequestParamRules&gt;
+            &lt;L7p:ResponseHeaderRules httpPassthroughRuleSet="included"&gt;
+                &lt;L7p:ForwardAll booleanValue="true"/&gt;
+                &lt;L7p:Rules httpPassthroughRules="included"&gt;
+                    &lt;L7p:item httpPassthroughRule="included"&gt;
+                        &lt;L7p:Name stringValue="Set-Cookie"/&gt;
+                    &lt;/L7p:item&gt;
+                &lt;/L7p:Rules&gt;
+            &lt;/L7p:ResponseHeaderRules&gt;
+        &lt;/L7p:HttpRoutingAssertion&gt;
+    &lt;/wsp:All&gt;
+&lt;/wsp:Policy&gt;
+</l7:Resource>
+        </l7:ResourceSet>
+        <l7:ResourceSet rootUrl="file:/Users/annmi01/OneDrive%20-%20CA%20Technologies/Opportunities/POC,%20Workshops%20and%20Prepared%20Demos/2017-11-08%20Faurecia%20(FR)/requisites/mii_wsdlgen.wsdl" tag="wsdl">
+            <l7:Resource sourceUrl="file:/Users/annmi01/OneDrive%20-%20CA%20Technologies/Opportunities/POC,%20Workshops%20and%20Prepared%20Demos/2017-11-08%20Faurecia%20(FR)/requisites/mii_wsdlgen.wsdl" type="wsdl">&lt;definitions targetNamespace="http://www.sap.com/xMII" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:s0="http://www.sap.com/xMII" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/"&gt;
+    &lt;!-- Types --&gt;
+    &lt;types&gt;
+        &lt;s:schema elementFormDefault="qualified" targetNamespace="http://www.sap.com/xMII"&gt;
+            &lt;s:complexType name="InputParams"&gt;
+                &lt;s:sequence id="InputSequence"&gt;
+                    
+                &lt;s:element maxOccurs="1" minOccurs="0" name="DeliveryDateFrom" type="s:string"/&gt;&lt;s:element maxOccurs="1" minOccurs="0" name="DeliveryDateTo" type="s:string"/&gt;&lt;s:element maxOccurs="1" minOccurs="0" name="DeliveryTimeFrom" type="s:string"/&gt;&lt;s:element maxOccurs="1" minOccurs="0" name="DeliveryTimeTo" type="s:string"/&gt;&lt;s:element maxOccurs="1" minOccurs="0" name="ExternalID" type="s:string"/&gt;&lt;s:element maxOccurs="1" minOccurs="0" name="HeaderStatus" type="s:string"/&gt;&lt;s:element maxOccurs="1" minOccurs="0" name="InboundDelivery" type="s:string"/&gt;&lt;s:element maxOccurs="1" minOccurs="0" name="PageNumber" type="s:string"/&gt;&lt;s:element maxOccurs="1" minOccurs="0" name="PartNumber" type="s:string"/&gt;&lt;s:element maxOccurs="1" minOccurs="0" name="Plant" type="s:string"/&gt;&lt;s:element maxOccurs="1" minOccurs="0" name="ReceivingPoint" type="s:string"/&gt;&lt;s:element maxOccurs="1" minOccurs="0" name="SupplierCode" type="s:string"/&gt;&lt;s:element maxOccurs="1" minOccurs="0" name="UserId" type="s:string"/&gt;&lt;/s:sequence&gt;
+            &lt;/s:complexType&gt;
+            &lt;s:element name="XacuteRequest"&gt;
+                &lt;s:complexType&gt;
+                    &lt;s:sequence&gt;
+                        &lt;s:element maxOccurs="1" minOccurs="0" name="LoginName" type="s:string"/&gt;
+                        &lt;s:element maxOccurs="1" minOccurs="0" name="LoginPassword" type="s:string"/&gt;
+                        &lt;s:element maxOccurs="1" minOccurs="0" name="InputParams" type="s0:InputParams"/&gt;
+                    &lt;/s:sequence&gt;
+                &lt;/s:complexType&gt;
+            &lt;/s:element&gt;
+            &lt;s:complexType name="Rowset"&gt;
+                &lt;s:sequence&gt;
+                    &lt;s:element maxOccurs="unbounded" minOccurs="0" name="Row" type="s0:Row"/&gt;
+                &lt;/s:sequence&gt;
+                &lt;s:attribute name="Message" type="s:string"/&gt;
+            &lt;/s:complexType&gt;
+            &lt;s:complexType name="Row"&gt;
+                &lt;s:sequence id="RowSequence"&gt;
+                    
+                &lt;s:any maxOccurs="132" minOccurs="1" type="s:string"/&gt;&lt;/s:sequence&gt;
+            &lt;/s:complexType&gt;
+            &lt;s:element name="XacuteResponse"&gt;
+                &lt;s:complexType&gt;
+                    &lt;s:sequence&gt;
+                        &lt;s:element maxOccurs="1" minOccurs="0" name="Rowset" type="s0:Rowset"/&gt;
+                    &lt;/s:sequence&gt;
+                &lt;/s:complexType&gt;
+            &lt;/s:element&gt;
+        &lt;/s:schema&gt;
+    &lt;/types&gt;
+    &lt;!-- Messages --&gt;
+    &lt;message name="XacuteSoapIn"&gt;
+        &lt;part element="s0:XacuteRequest" name="parameters"/&gt;
+    &lt;/message&gt;
+    &lt;message name="XacuteSoapOut"&gt;
+        &lt;part element="s0:XacuteResponse" name="parameters"/&gt;
+    &lt;/message&gt;
+    &lt;!-- Ports --&gt;
+    &lt;portType name="XacuteWSSoap"&gt;
+        &lt;operation name="Xacute"&gt;
+            &lt;input message="s0:XacuteSoapIn"/&gt;
+            &lt;output message="s0:XacuteSoapOut"/&gt;
+        &lt;/operation&gt;
+    &lt;/portType&gt;
+    &lt;!-- Bindings --&gt;
+    &lt;binding name="XacuteWSSoap" type="s0:XacuteWSSoap"&gt;
+        &lt;soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/&gt;
+        &lt;operation name="Xacute"&gt;
+            &lt;soap:operation soapAction="http://www.sap.com/xMII" style="document"/&gt;
+            &lt;input&gt;
+                &lt;soap:body use="literal"/&gt;
+            &lt;/input&gt;
+            &lt;output&gt;
+                &lt;soap:body use="literal"/&gt;
+            &lt;/output&gt;
+        &lt;/operation&gt;
+    &lt;/binding&gt;
+    &lt;!-- Service mapping --&gt;
+    &lt;service name="XacuteWS"&gt;
+        &lt;port binding="s0:XacuteWSSoap" name="XacuteWSSoap"&gt;
+            &lt;soap:address location="http://eudrpmii0026.dc.ege.ds:50000/XMII/SOAPRunner/SC_AUTOMATION/API/RECEPTION/V1/TRANSACTION/GET_INBOUND_DELIVERIES_DETAILS"/&gt;
+        &lt;/port&gt;
+    &lt;/service&gt;
+&lt;/definitions&gt;</l7:Resource>
+        </l7:ResourceSet>
+    </l7:Resources>
+</l7:Service>

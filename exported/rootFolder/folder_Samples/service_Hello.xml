@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<l7:Service xmlns:l7="http://ns.l7tech.com/2010/04/gateway-management" id="697655b6deecb226df6ffad71ee477b7" version="3">
+    <l7:ServiceDetail folderId="2f78655eee2098e20d6c563f9dcb9ec7" id="697655b6deecb226df6ffad71ee477b7" version="3">
+        <l7:Name>Hello</l7:Name>
+        <l7:Enabled>true</l7:Enabled>
+        <l7:ServiceMappings>
+            <l7:HttpMapping>
+                <l7:UrlPattern>/sample/hello*</l7:UrlPattern>
+                <l7:Verbs>
+                    <l7:Verb>GET</l7:Verb>
+                    <l7:Verb>POST</l7:Verb>
+                    <l7:Verb>PUT</l7:Verb>
+                    <l7:Verb>DELETE</l7:Verb>
+                </l7:Verbs>
+            </l7:HttpMapping>
+        </l7:ServiceMappings>
+        <l7:Properties>
+            <l7:Property key="internal">
+                <l7:BooleanValue>false</l7:BooleanValue>
+            </l7:Property>
+            <l7:Property key="policyRevision">
+                <l7:LongValue>2</l7:LongValue>
+            </l7:Property>
+            <l7:Property key="soap">
+                <l7:BooleanValue>false</l7:BooleanValue>
+            </l7:Property>
+            <l7:Property key="tracingEnabled">
+                <l7:BooleanValue>false</l7:BooleanValue>
+            </l7:Property>
+            <l7:Property key="wssProcessingEnabled">
+                <l7:BooleanValue>false</l7:BooleanValue>
+            </l7:Property>
+        </l7:Properties>
+    </l7:ServiceDetail>
+    <l7:Resources>
+        <l7:ResourceSet tag="policy">
+            <l7:Resource type="policy" version="1">&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;wsp:Policy xmlns:L7p="http://www.layer7tech.com/ws/policy" xmlns:wsp="http://schemas.xmlsoap.org/ws/2002/12/policy"&gt;
+    &lt;wsp:All wsp:Usage="Required"&gt;
+        &lt;wsp:OneOrMore wsp:Usage="Required"&gt;
+            &lt;wsp:All wsp:Usage="Required"&gt;
+                &lt;L7p:ComparisonAssertion&gt;
+                    &lt;L7p:CaseSensitive booleanValue="false"/&gt;
+                    &lt;L7p:Expression1 stringValue="${request.http.parameter.name}"/&gt;
+                    &lt;L7p:Operator operatorNull="null"/&gt;
+                    &lt;L7p:Predicates predicates="included"&gt;
+                        &lt;L7p:item dataType="included"&gt;
+                            &lt;L7p:Type variableDataType="string"/&gt;
+                        &lt;/L7p:item&gt;
+                        &lt;L7p:item stringLength="included"&gt;
+                            &lt;L7p:Max intValue="-1"/&gt;
+                            &lt;L7p:Min intValue="1"/&gt;
+                        &lt;/L7p:item&gt;
+                    &lt;/L7p:Predicates&gt;
+                &lt;/L7p:ComparisonAssertion&gt;
+                &lt;L7p:SetVariable&gt;
+                    &lt;L7p:Base64Expression stringValue="JHtyZXF1ZXN0Lmh0dHAucGFyYW1ldGVyLm5hbWV9"/&gt;
+                    &lt;L7p:VariableToSet stringValue="name"/&gt;
+                &lt;/L7p:SetVariable&gt;
+            &lt;/wsp:All&gt;
+            &lt;L7p:SetVariable&gt;
+                &lt;L7p:Base64Expression stringValue="Tm9ib2R5"/&gt;
+                &lt;L7p:VariableToSet stringValue="name"/&gt;
+            &lt;/L7p:SetVariable&gt;
+            &lt;L7p:assertionComment&gt;
+                &lt;L7p:Properties mapValue="included"&gt;
+                    &lt;L7p:entry&gt;
+                        &lt;L7p:key stringValue="LEFT.COMMENT"/&gt;
+                        &lt;L7p:value stringValue="Name Header"/&gt;
+                    &lt;/L7p:entry&gt;
+                &lt;/L7p:Properties&gt;
+            &lt;/L7p:assertionComment&gt;
+        &lt;/wsp:OneOrMore&gt;
+        &lt;L7p:HardcodedResponse&gt;
+            &lt;L7p:Base64ResponseBody stringValue="SGVsbG8gJHtuYW1lfSBhdCAke2dhdGV3YXkudGltZS5sb2NhbH0="/&gt;
+            &lt;L7p:ResponseContentType stringValue="text/plain; charset=UTF-8"/&gt;
+        &lt;/L7p:HardcodedResponse&gt;
+    &lt;/wsp:All&gt;
+&lt;/wsp:Policy&gt;
+</l7:Resource>
+        </l7:ResourceSet>
+    </l7:Resources>
+</l7:Service>

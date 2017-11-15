@@ -1,0 +1,282 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<l7:DependencyList xmlns:l7="http://ns.l7tech.com/2010/04/gateway-management">
+    <l7:Dependencies>
+        <l7:Dependency>
+            <l7:Name>Samples</l7:Name>
+            <l7:Id>2f78655eee2098e20d6c563f9dcb9ec7</l7:Id>
+            <l7:Type>FOLDER</l7:Type>
+            <l7:Dependencies>
+                <l7:Dependency>
+                    <l7:Name>SOAP to REST</l7:Name>
+                    <l7:Id>697655b6deecb226df6ffad71ee4776a</l7:Id>
+                    <l7:Type>FOLDER</l7:Type>
+                </l7:Dependency>
+                <l7:Dependency>
+                    <l7:Name>PoC Use Cases</l7:Name>
+                    <l7:Id>f26c6df71ccb3b7b9aa9252378bf5f72</l7:Id>
+                    <l7:Type>FOLDER</l7:Type>
+                </l7:Dependency>
+                <l7:Dependency>
+                    <l7:Name>Sample External Geocode API + JWT</l7:Name>
+                    <l7:Id>f6dba503de22010ed690df32359fc8df</l7:Id>
+                    <l7:Type>FOLDER</l7:Type>
+                </l7:Dependency>
+                <l7:Dependency>
+                    <l7:Name>Hello</l7:Name>
+                    <l7:Id>697655b6deecb226df6ffad71ee477b7</l7:Id>
+                    <l7:Type>SERVICE</l7:Type>
+                </l7:Dependency>
+                <l7:Dependency>
+                    <l7:Name>Math</l7:Name>
+                    <l7:Id>697655b6deecb226df6ffad71ee47801</l7:Id>
+                    <l7:Type>SERVICE</l7:Type>
+                </l7:Dependency>
+                <l7:Dependency>
+                    <l7:Name>Mock Backend</l7:Name>
+                    <l7:Id>697655b6deecb226df6ffad71ee47850</l7:Id>
+                    <l7:Type>SERVICE</l7:Type>
+                </l7:Dependency>
+                <l7:Dependency>
+                    <l7:Name>Weather</l7:Name>
+                    <l7:Id>697655b6deecb226df6ffad71ee478a1</l7:Id>
+                    <l7:Type>SERVICE</l7:Type>
+                </l7:Dependency>
+            </l7:Dependencies>
+        </l7:Dependency>
+        <l7:Dependency>
+            <l7:Name>SOAP to REST</l7:Name>
+            <l7:Id>697655b6deecb226df6ffad71ee4776a</l7:Id>
+            <l7:Type>FOLDER</l7:Type>
+            <l7:Dependencies>
+                <l7:Dependency>
+                    <l7:Name>Warehouse</l7:Name>
+                    <l7:Id>a63dcf15d9ae8a3adc2ef47c43da3128</l7:Id>
+                    <l7:Type>SERVICE</l7:Type>
+                </l7:Dependency>
+                <l7:Dependency>
+                    <l7:Name>Download Postman Testing Project JSON</l7:Name>
+                    <l7:Id>b418105c8b439b07a7565de63690ee62</l7:Id>
+                    <l7:Type>SERVICE</l7:Type>
+                </l7:Dependency>
+                <l7:Dependency>
+                    <l7:Name>REST Proxy to Warehouse SOAP</l7:Name>
+                    <l7:Id>f6dba503de22010ed690df32359fcb6f</l7:Id>
+                    <l7:Type>SERVICE</l7:Type>
+                </l7:Dependency>
+            </l7:Dependencies>
+        </l7:Dependency>
+        <l7:Dependency>
+            <l7:Name>PoC Use Cases</l7:Name>
+            <l7:Id>f26c6df71ccb3b7b9aa9252378bf5f72</l7:Id>
+            <l7:Type>FOLDER</l7:Type>
+            <l7:Dependencies>
+                <l7:Dependency>
+                    <l7:Name>XacuteWS</l7:Name>
+                    <l7:Id>4248f7b23de26052cec97ed5593dff63</l7:Id>
+                    <l7:Type>SERVICE</l7:Type>
+                </l7:Dependency>
+                <l7:Dependency>
+                    <l7:Name>OData Validator</l7:Name>
+                    <l7:Id>f26c6df71ccb3b7b9aa9252378bf6b93</l7:Id>
+                    <l7:Type>SERVICE</l7:Type>
+                </l7:Dependency>
+                <l7:Dependency>
+                    <l7:Name>XSLT Operations</l7:Name>
+                    <l7:Id>f26c6df71ccb3b7b9aa9252378bf7331</l7:Id>
+                    <l7:Type>SERVICE</l7:Type>
+                </l7:Dependency>
+            </l7:Dependencies>
+        </l7:Dependency>
+        <l7:Dependency>
+            <l7:Name>Sample External Geocode API + JWT</l7:Name>
+            <l7:Id>f6dba503de22010ed690df32359fc8df</l7:Id>
+            <l7:Type>FOLDER</l7:Type>
+            <l7:Dependencies>
+                <l7:Dependency>
+                    <l7:Name>SAML SSO (GW as IDP and SP)</l7:Name>
+                    <l7:Id>2f78655eee2098e20d6c563f9dcb9f0b</l7:Id>
+                    <l7:Type>FOLDER</l7:Type>
+                </l7:Dependency>
+                <l7:Dependency>
+                    <l7:Name>Handling JWT</l7:Name>
+                    <l7:Id>f6dba503de22010ed690df32359fc808</l7:Id>
+                    <l7:Type>SERVICE</l7:Type>
+                </l7:Dependency>
+                <l7:Dependency>
+                    <l7:Name>OpenCage Geocoder</l7:Name>
+                    <l7:Id>f6dba503de22010ed690df32359fc895</l7:Id>
+                    <l7:Type>SERVICE</l7:Type>
+                </l7:Dependency>
+            </l7:Dependencies>
+        </l7:Dependency>
+        <l7:Dependency>
+            <l7:Name>SAML SSO (GW as IDP and SP)</l7:Name>
+            <l7:Id>2f78655eee2098e20d6c563f9dcb9f0b</l7:Id>
+            <l7:Type>FOLDER</l7:Type>
+            <l7:Dependencies>
+                <l7:Dependency>
+                    <l7:Name>SSO Identity Provider</l7:Name>
+                    <l7:Id>2f78655eee2098e20d6c563f9dcb9f50</l7:Id>
+                    <l7:Type>SERVICE</l7:Type>
+                </l7:Dependency>
+                <l7:Dependency>
+                    <l7:Name>SSO Service Provider</l7:Name>
+                    <l7:Id>2f78655eee2098e20d6c563f9dcb9f96</l7:Id>
+                    <l7:Type>SERVICE</l7:Type>
+                </l7:Dependency>
+            </l7:Dependencies>
+        </l7:Dependency>
+        <l7:Dependency>
+            <l7:Name>cluster.hostname</l7:Name>
+            <l7:Id>0000000000000000fffffffffff5519f</l7:Id>
+            <l7:Type>CLUSTER_PROPERTY</l7:Type>
+        </l7:Dependency>
+        <l7:Dependency>
+            <l7:Name>SSL</l7:Name>
+            <l7:Id>00000000000000000000000000000002:SSL</l7:Id>
+            <l7:Type>SSG_KEY_ENTRY</l7:Type>
+        </l7:Dependency>
+        <l7:Dependency>
+            <l7:Name>Warehouse</l7:Name>
+            <l7:Id>a63dcf15d9ae8a3adc2ef47c43da3128</l7:Id>
+            <l7:Type>SERVICE</l7:Type>
+            <l7:Dependencies>
+                <l7:Dependency>
+                    <l7:Name>cluster.hostname</l7:Name>
+                    <l7:Id>0000000000000000fffffffffff5519f</l7:Id>
+                    <l7:Type>CLUSTER_PROPERTY</l7:Type>
+                </l7:Dependency>
+                <l7:Dependency>
+                    <l7:Name>SSL</l7:Name>
+                    <l7:Id>00000000000000000000000000000002:SSL</l7:Id>
+                    <l7:Type>SSG_KEY_ENTRY</l7:Type>
+                </l7:Dependency>
+            </l7:Dependencies>
+        </l7:Dependency>
+        <l7:Dependency>
+            <l7:Name>Download Postman Testing Project JSON</l7:Name>
+            <l7:Id>b418105c8b439b07a7565de63690ee62</l7:Id>
+            <l7:Type>SERVICE</l7:Type>
+        </l7:Dependency>
+        <l7:Dependency>
+            <l7:Name>REST Proxy to Warehouse SOAP</l7:Name>
+            <l7:Id>f6dba503de22010ed690df32359fcb6f</l7:Id>
+            <l7:Type>SERVICE</l7:Type>
+            <l7:Dependencies>
+                <l7:Dependency>
+                    <l7:Name>SSL</l7:Name>
+                    <l7:Id>00000000000000000000000000000002:SSL</l7:Id>
+                    <l7:Type>SSG_KEY_ENTRY</l7:Type>
+                </l7:Dependency>
+            </l7:Dependencies>
+        </l7:Dependency>
+        <l7:Dependency>
+            <l7:Name>XacuteWS</l7:Name>
+            <l7:Id>4248f7b23de26052cec97ed5593dff63</l7:Id>
+            <l7:Type>SERVICE</l7:Type>
+            <l7:Dependencies>
+                <l7:Dependency>
+                    <l7:Name>SSL</l7:Name>
+                    <l7:Id>00000000000000000000000000000002:SSL</l7:Id>
+                    <l7:Type>SSG_KEY_ENTRY</l7:Type>
+                </l7:Dependency>
+            </l7:Dependencies>
+        </l7:Dependency>
+        <l7:Dependency>
+            <l7:Name>OData Validator</l7:Name>
+            <l7:Id>f26c6df71ccb3b7b9aa9252378bf6b93</l7:Id>
+            <l7:Type>SERVICE</l7:Type>
+            <l7:Dependencies>
+                <l7:Dependency>
+                    <l7:Name>SSL</l7:Name>
+                    <l7:Id>00000000000000000000000000000002:SSL</l7:Id>
+                    <l7:Type>SSG_KEY_ENTRY</l7:Type>
+                </l7:Dependency>
+            </l7:Dependencies>
+        </l7:Dependency>
+        <l7:Dependency>
+            <l7:Name>XSLT Operations</l7:Name>
+            <l7:Id>f26c6df71ccb3b7b9aa9252378bf7331</l7:Id>
+            <l7:Type>SERVICE</l7:Type>
+        </l7:Dependency>
+        <l7:Dependency>
+            <l7:Name>Internal Identity Provider</l7:Name>
+            <l7:Id>0000000000000000fffffffffffffffe</l7:Id>
+            <l7:Type>ID_PROVIDER_CONFIG</l7:Type>
+        </l7:Dependency>
+        <l7:Dependency>
+            <l7:Name>SSO Identity Provider</l7:Name>
+            <l7:Id>2f78655eee2098e20d6c563f9dcb9f50</l7:Id>
+            <l7:Type>SERVICE</l7:Type>
+            <l7:Dependencies>
+                <l7:Dependency>
+                    <l7:Name>Internal Identity Provider</l7:Name>
+                    <l7:Id>0000000000000000fffffffffffffffe</l7:Id>
+                    <l7:Type>ID_PROVIDER_CONFIG</l7:Type>
+                </l7:Dependency>
+                <l7:Dependency>
+                    <l7:Name>SSL</l7:Name>
+                    <l7:Id>00000000000000000000000000000002:SSL</l7:Id>
+                    <l7:Type>SSG_KEY_ENTRY</l7:Type>
+                </l7:Dependency>
+            </l7:Dependencies>
+        </l7:Dependency>
+        <l7:Dependency>
+            <l7:Name>SSO Service Provider</l7:Name>
+            <l7:Id>2f78655eee2098e20d6c563f9dcb9f96</l7:Id>
+            <l7:Type>SERVICE</l7:Type>
+            <l7:Dependencies>
+                <l7:Dependency>
+                    <l7:Name>SSL</l7:Name>
+                    <l7:Id>00000000000000000000000000000002:SSL</l7:Id>
+                    <l7:Type>SSG_KEY_ENTRY</l7:Type>
+                </l7:Dependency>
+            </l7:Dependencies>
+        </l7:Dependency>
+        <l7:Dependency>
+            <l7:Name>Handling JWT</l7:Name>
+            <l7:Id>f6dba503de22010ed690df32359fc808</l7:Id>
+            <l7:Type>SERVICE</l7:Type>
+            <l7:Dependencies>
+                <l7:Dependency>
+                    <l7:Name>SSL</l7:Name>
+                    <l7:Id>00000000000000000000000000000002:SSL</l7:Id>
+                    <l7:Type>SSG_KEY_ENTRY</l7:Type>
+                </l7:Dependency>
+            </l7:Dependencies>
+        </l7:Dependency>
+        <l7:Dependency>
+            <l7:Name>OpenCage Geocoder</l7:Name>
+            <l7:Id>f6dba503de22010ed690df32359fc895</l7:Id>
+            <l7:Type>SERVICE</l7:Type>
+            <l7:Dependencies>
+                <l7:Dependency>
+                    <l7:Name>SSL</l7:Name>
+                    <l7:Id>00000000000000000000000000000002:SSL</l7:Id>
+                    <l7:Type>SSG_KEY_ENTRY</l7:Type>
+                </l7:Dependency>
+            </l7:Dependencies>
+        </l7:Dependency>
+        <l7:Dependency>
+            <l7:Name>Hello</l7:Name>
+            <l7:Id>697655b6deecb226df6ffad71ee477b7</l7:Id>
+            <l7:Type>SERVICE</l7:Type>
+        </l7:Dependency>
+        <l7:Dependency>
+            <l7:Name>Math</l7:Name>
+            <l7:Id>697655b6deecb226df6ffad71ee47801</l7:Id>
+            <l7:Type>SERVICE</l7:Type>
+        </l7:Dependency>
+        <l7:Dependency>
+            <l7:Name>Mock Backend</l7:Name>
+            <l7:Id>697655b6deecb226df6ffad71ee47850</l7:Id>
+            <l7:Type>SERVICE</l7:Type>
+        </l7:Dependency>
+        <l7:Dependency>
+            <l7:Name>Weather</l7:Name>
+            <l7:Id>697655b6deecb226df6ffad71ee478a1</l7:Id>
+            <l7:Type>SERVICE</l7:Type>
+        </l7:Dependency>
+    </l7:Dependencies>
+    <l7:MissingDependencies/>
+</l7:DependencyList>

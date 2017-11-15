@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<l7:Service xmlns:l7="http://ns.l7tech.com/2010/04/gateway-management" id="b418105c8b439b07a7565de63690ee62" version="2">
+    <l7:ServiceDetail folderId="697655b6deecb226df6ffad71ee4776a" id="b418105c8b439b07a7565de63690ee62" version="2">
+        <l7:Name>Download Postman Testing Project JSON</l7:Name>
+        <l7:Enabled>true</l7:Enabled>
+        <l7:ServiceMappings>
+            <l7:HttpMapping>
+                <l7:UrlPattern>/soap_to_rest_postman_tests</l7:UrlPattern>
+                <l7:Verbs>
+                    <l7:Verb>GET</l7:Verb>
+                    <l7:Verb>POST</l7:Verb>
+                    <l7:Verb>PUT</l7:Verb>
+                    <l7:Verb>DELETE</l7:Verb>
+                </l7:Verbs>
+            </l7:HttpMapping>
+        </l7:ServiceMappings>
+        <l7:Properties>
+            <l7:Property key="internal">
+                <l7:BooleanValue>false</l7:BooleanValue>
+            </l7:Property>
+            <l7:Property key="policyRevision">
+                <l7:LongValue>6</l7:LongValue>
+            </l7:Property>
+            <l7:Property key="soap">
+                <l7:BooleanValue>false</l7:BooleanValue>
+            </l7:Property>
+            <l7:Property key="tracingEnabled">
+                <l7:BooleanValue>false</l7:BooleanValue>
+            </l7:Property>
+            <l7:Property key="wssProcessingEnabled">
+                <l7:BooleanValue>false</l7:BooleanValue>
+            </l7:Property>
+        </l7:Properties>
+    </l7:ServiceDetail>
+    <l7:Resources>
+        <l7:ResourceSet tag="policy">
+            <l7:Resource type="policy" version="5">&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;wsp:Policy xmlns:L7p="http://www.layer7tech.com/ws/policy" xmlns:wsp="http://schemas.xmlsoap.org/ws/2002/12/policy"&gt;
+    &lt;wsp:All wsp:Usage="Required"&gt;
+        &lt;L7p:CommentAssertion&gt;
+            &lt;L7p:Comment stringValue="=== This endpoint returns a JSON project file for JSON which, when imported, allows pre-canned test calls to walk through the SOAP to REST scenario ==="/&gt;
+        &lt;/L7p:CommentAssertion&gt;
+        &lt;L7p:AddHeader&gt;
+            &lt;L7p:HeaderName stringValue="Content-disposition"/&gt;
+            &lt;L7p:HeaderValue stringValue="attachment; filename=SOAP to REST CA APIM Combined Image Example.postman_collection.json"/&gt;
+            &lt;L7p:Target target="RESPONSE"/&gt;
+        &lt;/L7p:AddHeader&gt;
+        &lt;L7p:HardcodedResponse&gt;
+            &lt;L7p:Base64ResponseBody stringValue="ewoJInZhcmlhYmxlcyI6IFtdLAoJImluZm8iOiB7CgkJIm5hbWUiOiAiU09BUCB0byBSRVNUIENJIDQuMSA5LjIgNC4wIDQuMCBFeGFtcGxlIiwKCQkiX3Bvc3RtYW5faWQiOiAiMmQwNzg5ZTktZDU5Yi02MzlmLWYwZGYtNjViNTdhZWEzMWFhIiwKCQkiZGVzY3JpcHRpb24iOiAiIiwKCQkic2NoZW1hIjogImh0dHBzOi8vc2NoZW1hLmdldHBvc3RtYW4uY29tL2pzb24vY29sbGVjdGlvbi92Mi4wLjAvY29sbGVjdGlvbi5qc29uIgoJfSwKCSJpdGVtIjogWwoJCXsKCQkJIm5hbWUiOiAiaHR0cHM6Ly9kZXYuY2EuY29tOjg0NDMvd2FyZWhvdXNlX3Jlc3QvcHJvZHVjdHMiLAoJCQkicmVxdWVzdCI6IHsKCQkJCSJ1cmwiOiAiaHR0cHM6Ly9kZXYuY2EuY29tOjg0NDMvd2FyZWhvdXNlX3Jlc3QvcHJvZHVjdHMiLAoJCQkJIm1ldGhvZCI6ICJHRVQiLAoJCQkJImhlYWRlciI6IFtdLAoJCQkJImJvZHkiOiB7fSwKCQkJCSJkZXNjcmlwdGlvbiI6ICIiCgkJCX0sCgkJCSJyZXNwb25zZSI6IFtdCgkJfSwKCQl7CgkJCSJuYW1lIjogImh0dHBzOi8vZGV2LmNhLmNvbTo4NDQzL3dhcmVob3VzZV9yZXN0L3Byb2R1Y3RkZXRhaWxzLzU0MTEyIiwKCQkJInJlcXVlc3QiOiB7CgkJCQkidXJsIjogImh0dHBzOi8vZGV2LmNhLmNvbTo4NDQzL3dhcmVob3VzZV9yZXN0L3Byb2R1Y3RkZXRhaWxzLzU0MTEyIiwKCQkJCSJtZXRob2QiOiAiR0VUIiwKCQkJCSJoZWFkZXIiOiBbXSwKCQkJCSJib2R5Ijoge30sCgkJCQkiZGVzY3JpcHRpb24iOiAiIgoJCQl9LAoJCQkicmVzcG9uc2UiOiBbXQoJCX0sCgkJewoJCQkibmFtZSI6ICJodHRwczovL2Rldi5jYS5jb206ODQ0My93YXJlaG91c2VfcmVzdC9vcmRlcnMvMTEiLAoJCQkicmVxdWVzdCI6IHsKCQkJCSJ1cmwiOiAiaHR0cHM6Ly9kZXYuY2EuY29tOjg0NDMvd2FyZWhvdXNlX3Jlc3Qvb3JkZXJzLzExIiwKCQkJCSJtZXRob2QiOiAiR0VUIiwKCQkJCSJoZWFkZXIiOiBbXSwKCQkJCSJib2R5Ijoge30sCgkJCQkiZGVzY3JpcHRpb24iOiAiMTEgaXMgdGhlIGFjY291bnRJZCIKCQkJfSwKCQkJInJlc3BvbnNlIjogW10KCQl9LAoJCXsKCQkJIm5hbWUiOiAiaHR0cHM6Ly9kZXYuY2EuY29tOjg0NDMvd2FyZWhvdXNlX3Jlc3QvcGxhY2VvcmRlciIsCgkJCSJyZXF1ZXN0IjogewoJCQkJInVybCI6ICJodHRwczovL2Rldi5jYS5jb206ODQ0My93YXJlaG91c2VfcmVzdC9wbGFjZW9yZGVyIiwKCQkJCSJtZXRob2QiOiAiUE9TVCIsCgkJCQkiaGVhZGVyIjogWwoJCQkJCXsKCQkJCQkJImtleSI6ICJDb250ZW50LVR5cGUiLAoJCQkJCQkidmFsdWUiOiAiYXBwbGljYXRpb24vanNvbiIsCgkJCQkJCSJkZXNjcmlwdGlvbiI6ICIiCgkJCQkJfQoJCQkJXSwKCQkJCSJib2R5IjogewoJCQkJCSJtb2RlIjogInJhdyIsCgkJCQkJInJhdyI6ICJbe1xyXG5cdFx0XCJwcm9kdWN0aWRcIjogXCI1NDExMlwiXHJcblx0fSxcclxuXHR7XHJcblx0XHRcImFtb3VudFwiOiBcIjJcIlxyXG5cdH0sXHJcblx0e1xyXG5cdFx0XCJwcmljZVwiOiBcIjM1NFwiXHJcblx0fSxcclxuXHR7XHJcblx0XHRcImFjY291bnRpZFwiOiBcIjExXCJcclxuXHR9XHJcbl0iCgkJCQl9LAoJCQkJImRlc2NyaXB0aW9uIjogInBheWxvYWQgdHJhbnNmb3JtZWQgdG8gU09BUCByZXF1ZXN0IgoJCQl9LAoJCQkicmVzcG9uc2UiOiBbXQoJCX0KCV0KfQ=="/&gt;
+            &lt;L7p:ResponseContentType stringValue="application/json; charset=UTF-8"/&gt;
+        &lt;/L7p:HardcodedResponse&gt;
+    &lt;/wsp:All&gt;
+&lt;/wsp:Policy&gt;
+</l7:Resource>
+        </l7:ResourceSet>
+    </l7:Resources>
+</l7:Service>

@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<l7:Folder xmlns:l7="http://ns.l7tech.com/2010/04/gateway-management" folderId="2f78655eee2098e20d6c563f9dcb9ec7" id="f6dba503de22010ed690df32359fc8df" version="0">
+    <l7:Name>Sample External Geocode API + JWT</l7:Name>
+</l7:Folder>

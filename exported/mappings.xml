@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<l7:Mappings xmlns:l7="http://ns.l7tech.com/2010/04/gateway-management">
+    <l7:Mapping action="NewOrExisting" srcId="0000000000000000ffffffffffffec76" srcUri="https://b75c48b8c556:8443/restman/1.0/folders/0000000000000000ffffffffffffec76" type="FOLDER">
+        <l7:Properties>
+            <l7:Property key="FailOnNew">
+                <l7:BooleanValue>true</l7:BooleanValue>
+            </l7:Property>
+        </l7:Properties>
+    </l7:Mapping>
+    <l7:Mapping action="NewOrExisting" srcId="2f78655eee2098e20d6c563f9dcb9ec7" srcUri="https://b75c48b8c556:8443/restman/1.0/folders/2f78655eee2098e20d6c563f9dcb9ec7" type="FOLDER"/>
+    <l7:Mapping action="NewOrExisting" srcId="697655b6deecb226df6ffad71ee4776a" srcUri="https://b75c48b8c556:8443/restman/1.0/folders/697655b6deecb226df6ffad71ee4776a" type="FOLDER"/>
+    <l7:Mapping action="NewOrExisting" srcId="f26c6df71ccb3b7b9aa9252378bf5f72" srcUri="https://b75c48b8c556:8443/restman/1.0/folders/f26c6df71ccb3b7b9aa9252378bf5f72" type="FOLDER"/>
+    <l7:Mapping action="NewOrExisting" srcId="f6dba503de22010ed690df32359fc8df" srcUri="https://b75c48b8c556:8443/restman/1.0/folders/f6dba503de22010ed690df32359fc8df" type="FOLDER"/>
+    <l7:Mapping action="NewOrExisting" srcId="2f78655eee2098e20d6c563f9dcb9f0b" srcUri="https://b75c48b8c556:8443/restman/1.0/folders/2f78655eee2098e20d6c563f9dcb9f0b" type="FOLDER"/>
+    <l7:Mapping action="NewOrExisting" srcId="0000000000000000fffffffffff5519f" srcUri="https://b75c48b8c556:8443/restman/1.0/clusterProperties/0000000000000000fffffffffff5519f" type="CLUSTER_PROPERTY">
+        <l7:Properties>
+            <l7:Property key="MapBy">
+                <l7:StringValue>name</l7:StringValue>
+            </l7:Property>
+        </l7:Properties>
+    </l7:Mapping>
+    <l7:Mapping action="NewOrExisting" srcId="00000000000000000000000000000002:SSL" srcUri="https://b75c48b8c556:8443/restman/1.0/privateKeys/00000000000000000000000000000002:SSL" type="SSG_KEY_ENTRY"/>
+    <l7:Mapping action="NewOrExisting" srcId="a63dcf15d9ae8a3adc2ef47c43da3128" srcUri="https://b75c48b8c556:8443/restman/1.0/services/a63dcf15d9ae8a3adc2ef47c43da3128" type="SERVICE"/>
+    <l7:Mapping action="NewOrExisting" srcId="b418105c8b439b07a7565de63690ee62" srcUri="https://b75c48b8c556:8443/restman/1.0/services/b418105c8b439b07a7565de63690ee62" type="SERVICE"/>
+    <l7:Mapping action="NewOrExisting" srcId="f6dba503de22010ed690df32359fcb6f" srcUri="https://b75c48b8c556:8443/restman/1.0/services/f6dba503de22010ed690df32359fcb6f" type="SERVICE"/>
+    <l7:Mapping action="NewOrExisting" srcId="4248f7b23de26052cec97ed5593dff63" srcUri="https://b75c48b8c556:8443/restman/1.0/services/4248f7b23de26052cec97ed5593dff63" type="SERVICE"/>
+    <l7:Mapping action="NewOrExisting" srcId="f26c6df71ccb3b7b9aa9252378bf6b93" srcUri="https://b75c48b8c556:8443/restman/1.0/services/f26c6df71ccb3b7b9aa9252378bf6b93" type="SERVICE"/>
+    <l7:Mapping action="NewOrExisting" srcId="f26c6df71ccb3b7b9aa9252378bf7331" srcUri="https://b75c48b8c556:8443/restman/1.0/services/f26c6df71ccb3b7b9aa9252378bf7331" type="SERVICE"/>
+    <l7:Mapping action="NewOrExisting" srcId="0000000000000000fffffffffffffffe" srcUri="https://b75c48b8c556:8443/restman/1.0/identityProviders/0000000000000000fffffffffffffffe" type="ID_PROVIDER_CONFIG">
+        <l7:Properties>
+            <l7:Property key="FailOnNew">
+                <l7:BooleanValue>true</l7:BooleanValue>
+            </l7:Property>
+        </l7:Properties>
+    </l7:Mapping>
+    <l7:Mapping action="NewOrExisting" srcId="2f78655eee2098e20d6c563f9dcb9f50" srcUri="https://b75c48b8c556:8443/restman/1.0/services/2f78655eee2098e20d6c563f9dcb9f50" type="SERVICE"/>
+    <l7:Mapping action="NewOrExisting" srcId="2f78655eee2098e20d6c563f9dcb9f96" srcUri="https://b75c48b8c556:8443/restman/1.0/services/2f78655eee2098e20d6c563f9dcb9f96" type="SERVICE"/>
+    <l7:Mapping action="NewOrExisting" srcId="f6dba503de22010ed690df32359fc808" srcUri="https://b75c48b8c556:8443/restman/1.0/services/f6dba503de22010ed690df32359fc808" type="SERVICE"/>
+    <l7:Mapping action="NewOrExisting" srcId="f6dba503de22010ed690df32359fc895" srcUri="https://b75c48b8c556:8443/restman/1.0/services/f6dba503de22010ed690df32359fc895" type="SERVICE"/>
+    <l7:Mapping action="NewOrExisting" srcId="697655b6deecb226df6ffad71ee477b7" srcUri="https://b75c48b8c556:8443/restman/1.0/services/697655b6deecb226df6ffad71ee477b7" type="SERVICE"/>
+    <l7:Mapping action="NewOrExisting" srcId="697655b6deecb226df6ffad71ee47801" srcUri="https://b75c48b8c556:8443/restman/1.0/services/697655b6deecb226df6ffad71ee47801" type="SERVICE"/>
+    <l7:Mapping action="NewOrExisting" srcId="697655b6deecb226df6ffad71ee47850" srcUri="https://b75c48b8c556:8443/restman/1.0/services/697655b6deecb226df6ffad71ee47850" type="SERVICE"/>
+    <l7:Mapping action="NewOrExisting" srcId="697655b6deecb226df6ffad71ee478a1" srcUri="https://b75c48b8c556:8443/restman/1.0/services/697655b6deecb226df6ffad71ee478a1" type="SERVICE"/>
+</l7:Mappings>

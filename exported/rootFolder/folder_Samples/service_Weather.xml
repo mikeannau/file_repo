@@ -1,0 +1,329 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<l7:Service xmlns:l7="http://ns.l7tech.com/2010/04/gateway-management" id="697655b6deecb226df6ffad71ee478a1" version="3">
+    <l7:ServiceDetail folderId="2f78655eee2098e20d6c563f9dcb9ec7" id="697655b6deecb226df6ffad71ee478a1" version="3">
+        <l7:Name>Weather</l7:Name>
+        <l7:Enabled>true</l7:Enabled>
+        <l7:ServiceMappings>
+            <l7:HttpMapping>
+                <l7:UrlPattern>/sample/weather*</l7:UrlPattern>
+                <l7:Verbs>
+                    <l7:Verb>GET</l7:Verb>
+                    <l7:Verb>POST</l7:Verb>
+                    <l7:Verb>PUT</l7:Verb>
+                    <l7:Verb>DELETE</l7:Verb>
+                </l7:Verbs>
+            </l7:HttpMapping>
+        </l7:ServiceMappings>
+        <l7:Properties>
+            <l7:Property key="internal">
+                <l7:BooleanValue>false</l7:BooleanValue>
+            </l7:Property>
+            <l7:Property key="policyRevision">
+                <l7:LongValue>2</l7:LongValue>
+            </l7:Property>
+            <l7:Property key="soap">
+                <l7:BooleanValue>false</l7:BooleanValue>
+            </l7:Property>
+            <l7:Property key="tracingEnabled">
+                <l7:BooleanValue>false</l7:BooleanValue>
+            </l7:Property>
+            <l7:Property key="wssProcessingEnabled">
+                <l7:BooleanValue>false</l7:BooleanValue>
+            </l7:Property>
+        </l7:Properties>
+    </l7:ServiceDetail>
+    <l7:Resources>
+        <l7:ResourceSet tag="policy">
+            <l7:Resource type="policy" version="1">&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;wsp:Policy xmlns:L7p="http://www.layer7tech.com/ws/policy" xmlns:wsp="http://schemas.xmlsoap.org/ws/2002/12/policy"&gt;
+    &lt;wsp:All wsp:Usage="Required"&gt;
+        &lt;L7p:Split&gt;
+            &lt;L7p:InputVariable stringValue="request.http.uri"/&gt;
+            &lt;L7p:OutputVariable stringValue="uri.parts"/&gt;
+            &lt;L7p:SplitPattern stringValue="/"/&gt;
+        &lt;/L7p:Split&gt;
+        &lt;L7p:SetVariable&gt;
+            &lt;L7p:Base64Expression stringValue="PGZvcmVjYXN0Pg0KIDxjaXR5PiR7dXJpLnBhcnRzWzJdfTwvY2l0eT4NCiA8ZGF5MT4NCiAgPHRlbXA+MjBDPC90ZW1wPg0KICA8Y29uZGl0aW9ucz5TVU5OWTwvY29uZGl0aW9ucz4NCiAgPFdpbmRTcGVlZD4xNSBNUEg8L1dpbmRTcGVlZD4NCiAgPFdpbmREaXI+RUFTVDwvV2luZERpcj4NCiA8L2RheTE+DQo8L2ZvcmVjYXN0Pg=="/&gt;
+            &lt;L7p:ContentType stringValue="text/xml; charset=utf-8"/&gt;
+            &lt;L7p:DataType variableDataType="message"/&gt;
+            &lt;L7p:VariableToSet stringValue="XMLMSG"/&gt;
+        &lt;/L7p:SetVariable&gt;
+        &lt;wsp:OneOrMore wsp:Usage="Required"&gt;
+            &lt;wsp:All wsp:Usage="Required"&gt;
+                &lt;L7p:ComparisonAssertion&gt;
+                    &lt;L7p:Expression1 stringValue="${request.http.parameter.scale}"/&gt;
+                    &lt;L7p:Expression2 stringValue="C"/&gt;
+                    &lt;L7p:Predicates predicates="included"&gt;
+                        &lt;L7p:item binary="included"&gt;
+                            &lt;L7p:RightValue stringValue="C"/&gt;
+                        &lt;/L7p:item&gt;
+                    &lt;/L7p:Predicates&gt;
+                &lt;/L7p:ComparisonAssertion&gt;
+                &lt;wsp:OneOrMore wsp:Usage="Required"&gt;
+                    &lt;wsp:All wsp:Usage="Required"&gt;
+                        &lt;L7p:ComparisonAssertion&gt;
+                            &lt;L7p:CaseSensitive booleanValue="false"/&gt;
+                            &lt;L7p:Expression1 stringValue="${request.http.parameter.nice}"/&gt;
+                            &lt;L7p:Operator operatorNull="null"/&gt;
+                            &lt;L7p:Predicates predicates="included"&gt;
+                                &lt;L7p:item dataType="included"&gt;
+                                    &lt;L7p:Type variableDataType="string"/&gt;
+                                &lt;/L7p:item&gt;
+                                &lt;L7p:item binary="included"&gt;
+                                    &lt;L7p:RightValue stringValue="true"/&gt;
+                                &lt;/L7p:item&gt;
+                            &lt;/L7p:Predicates&gt;
+                        &lt;/L7p:ComparisonAssertion&gt;
+                        &lt;wsp:OneOrMore wsp:Usage="Required"&gt;
+                            &lt;wsp:All wsp:Usage="Required"&gt;
+                                &lt;L7p:ComparisonAssertion&gt;
+                                    &lt;L7p:CaseSensitive booleanValue="false"/&gt;
+                                    &lt;L7p:Expression1 stringValue="${request.http.parameter.period}"/&gt;
+                                    &lt;L7p:Operator operatorNull="null"/&gt;
+                                    &lt;L7p:Predicates predicates="included"&gt;
+                                    &lt;L7p:item dataType="included"&gt;
+                                    &lt;L7p:Type variableDataType="int"/&gt;
+                                    &lt;/L7p:item&gt;
+                                    &lt;L7p:item binary="included"&gt;
+                                    &lt;L7p:RightValue stringValue="5"/&gt;
+                                    &lt;/L7p:item&gt;
+                                    &lt;/L7p:Predicates&gt;
+                                &lt;/L7p:ComparisonAssertion&gt;
+                                &lt;L7p:HardcodedResponse&gt;
+                                    &lt;L7p:Base64ResponseBody stringValue="PGZvcmVjYXN0PgogPGNpdHk+JHt1cmkucGFydHNbMl19PC9jaXR5PgogPGRheTE+CiAgPHRlbXA+MjhDPC90ZW1wPgogIDxjb25kaXRpb25zPlNVTk5ZPC9jb25kaXRpb25zPgogIDxXaW5kU3BlZWQ+NSBNUEg8L1dpbmRTcGVlZD4KICA8V2luZERpcj5TT1VUSDwvV2luZERpcj4KIDwvZGF5MT4KIDxkYXkyPgogIDx0ZW1wPjI4QzwvdGVtcD4KICA8Y29uZGl0aW9ucz5TVU5OWTwvY29uZGl0aW9ucz4KICA8V2luZFNwZWVkPjUgTVBIPC9XaW5kU3BlZWQ+CiAgPFdpbmREaXI+U09VVEg8L1dpbmREaXI+CiA8L2RheTI+CiA8ZGF5Mz4KICA8dGVtcD4yOEM8L3RlbXA+CiAgPGNvbmRpdGlvbnM+U1VOTlk8L2NvbmRpdGlvbnM+CiAgPFdpbmRTcGVlZD41IE1QSDwvV2luZFNwZWVkPgogIDxXaW5kRGlyPlNPVVRIPC9XaW5kRGlyPgogPC9kYXkzPgogPGRheTQ+CiAgPHRlbXA+MjhDPC90ZW1wPgogIDxjb25kaXRpb25zPlNVTk5ZPC9jb25kaXRpb25zPgogIDxXaW5kU3BlZWQ+NSBNUEg8L1dpbmRTcGVlZD4KICA8V2luZERpcj5TT1VUSDwvV2luZERpcj4KIDwvZGF5ND4KIDxkYXk1PgogIDx0ZW1wPjI4QzwvdGVtcD4KICA8Y29uZGl0aW9ucz5TVU5OWTwvY29uZGl0aW9ucz4KICA8V2luZFNwZWVkPjUgTVBIPC9XaW5kU3BlZWQ+CiAgPFdpbmREaXI+U09VVEg8L1dpbmREaXI+CiA8L2RheTU+CjwvZm9yZWNhc3Q+"/&gt;
+                                &lt;/L7p:HardcodedResponse&gt;
+                            &lt;/wsp:All&gt;
+                            &lt;wsp:All wsp:Usage="Required"&gt;
+                                &lt;L7p:ComparisonAssertion&gt;
+                                    &lt;L7p:CaseSensitive booleanValue="false"/&gt;
+                                    &lt;L7p:Expression1 stringValue="${request.http.parameter.period}"/&gt;
+                                    &lt;L7p:Operator operatorNull="null"/&gt;
+                                    &lt;L7p:Predicates predicates="included"&gt;
+                                    &lt;L7p:item dataType="included"&gt;
+                                    &lt;L7p:Type variableDataType="int"/&gt;
+                                    &lt;/L7p:item&gt;
+                                    &lt;L7p:item binary="included"&gt;
+                                    &lt;L7p:Operator operator="LT"/&gt;
+                                    &lt;L7p:RightValue stringValue="5"/&gt;
+                                    &lt;/L7p:item&gt;
+                                    &lt;/L7p:Predicates&gt;
+                                &lt;/L7p:ComparisonAssertion&gt;
+                                &lt;L7p:HardcodedResponse&gt;
+                                    &lt;L7p:Base64ResponseBody stringValue="PGZvcmVjYXN0PgogPGNpdHk+JHt1cmkucGFydHNbMl19PC9jaXR5PgogPGRheTE+CiAgPHRlbXA+MjhDPC90ZW1wPgogIDxjb25kaXRpb25zPlNVTk5ZPC9jb25kaXRpb25zPgogIDxXaW5kU3BlZWQ+NSBNUEg8L1dpbmRTcGVlZD4KICA8V2luZERpcj5TT1VUSDwvV2luZERpcj4KIDwvZGF5MT4KPC9mb3JlY2FzdD4="/&gt;
+                                &lt;/L7p:HardcodedResponse&gt;
+                            &lt;/wsp:All&gt;
+                        &lt;/wsp:OneOrMore&gt;
+                        &lt;L7p:assertionComment&gt;
+                            &lt;L7p:Properties mapValue="included"&gt;
+                                &lt;L7p:entry&gt;
+                                    &lt;L7p:key stringValue="RIGHT.COMMENT"/&gt;
+                                    &lt;L7p:value stringValue="*** Nice Weather Only"/&gt;
+                                &lt;/L7p:entry&gt;
+                            &lt;/L7p:Properties&gt;
+                        &lt;/L7p:assertionComment&gt;
+                    &lt;/wsp:All&gt;
+                    &lt;wsp:OneOrMore wsp:Usage="Required"&gt;
+                        &lt;wsp:All wsp:Usage="Required"&gt;
+                            &lt;L7p:ComparisonAssertion&gt;
+                                &lt;L7p:CaseSensitive booleanValue="false"/&gt;
+                                &lt;L7p:Expression1 stringValue="${request.http.parameter.period}"/&gt;
+                                &lt;L7p:Operator operatorNull="null"/&gt;
+                                &lt;L7p:Predicates predicates="included"&gt;
+                                    &lt;L7p:item dataType="included"&gt;
+                                    &lt;L7p:Type variableDataType="int"/&gt;
+                                    &lt;/L7p:item&gt;
+                                    &lt;L7p:item binary="included"&gt;
+                                    &lt;L7p:RightValue stringValue="5"/&gt;
+                                    &lt;/L7p:item&gt;
+                                &lt;/L7p:Predicates&gt;
+                            &lt;/L7p:ComparisonAssertion&gt;
+                            &lt;L7p:HardcodedResponse&gt;
+                                &lt;L7p:Base64ResponseBody stringValue="PGZvcmVjYXN0PgogPGNpdHk+JHt1cmkucGFydHNbMl19PC9jaXR5PgogPGRheTE+CiAgPHRlbXA+MjBDPC90ZW1wPgogIDxjb25kaXRpb25zPlNVTk5ZPC9jb25kaXRpb25zPgogIDxXaW5kU3BlZWQ+NSBNUEg8L1dpbmRTcGVlZD4KICA8V2luZERpcj5TT1VUSDwvV2luZERpcj4KIDwvZGF5MT4KIDxkYXkyPgogIDx0ZW1wPjE4QzwvdGVtcD4KICA8Y29uZGl0aW9ucz5DTE9VRFk8L2NvbmRpdGlvbnM+CiAgPFdpbmRTcGVlZD4xNSBNUEg8L1dpbmRTcGVlZD4KICA8V2luZERpcj5TT1VUSC1FQVNUPC9XaW5kRGlyPgogPC9kYXkyPgogPGRheTM+CiAgPHRlbXA+MTVDPC90ZW1wPgogIDxjb25kaXRpb25zPlJBSU48L2NvbmRpdGlvbnM+CiAgPFdpbmRTcGVlZD4yNSBNUEg8L1dpbmRTcGVlZD4KICA8V2luZERpcj5TT1VUSDwvV2luZERpcj4KIDwvZGF5Mz4KIDxkYXk0PgogIDx0ZW1wPjEzQzwvdGVtcD4KICA8Y29uZGl0aW9ucz5DTE9VRFk8L2NvbmRpdGlvbnM+CiAgPFdpbmRTcGVlZD4xNSBNUEg8L1dpbmRTcGVlZD4KICA8V2luZERpcj5TT1VUSDwvV2luZERpcj4KIDwvZGF5ND4KIDxkYXk1PgogIDx0ZW1wPjEwQzwvdGVtcD4KICA8Y29uZGl0aW9ucz5SQUlOPC9jb25kaXRpb25zPgogIDxXaW5kU3BlZWQ+NTUgTVBIPC9XaW5kU3BlZWQ+CiAgPFdpbmREaXI+Tk9SVEgtV0VTVDwvV2luZERpcj4KIDwvZGF5NT4KPC9mb3JlY2FzdD4="/&gt;
+                            &lt;/L7p:HardcodedResponse&gt;
+                        &lt;/wsp:All&gt;
+                        &lt;wsp:All wsp:Usage="Required"&gt;
+                            &lt;L7p:ComparisonAssertion&gt;
+                                &lt;L7p:CaseSensitive booleanValue="false"/&gt;
+                                &lt;L7p:Expression1 stringValue="${request.http.parameter.period}"/&gt;
+                                &lt;L7p:Operator operatorNull="null"/&gt;
+                                &lt;L7p:Predicates predicates="included"&gt;
+                                    &lt;L7p:item dataType="included"&gt;
+                                    &lt;L7p:Type variableDataType="int"/&gt;
+                                    &lt;/L7p:item&gt;
+                                    &lt;L7p:item binary="included"&gt;
+                                    &lt;L7p:Operator operator="LT"/&gt;
+                                    &lt;L7p:RightValue stringValue="5"/&gt;
+                                    &lt;/L7p:item&gt;
+                                &lt;/L7p:Predicates&gt;
+                            &lt;/L7p:ComparisonAssertion&gt;
+                            &lt;L7p:HardcodedResponse&gt;
+                                &lt;L7p:Base64ResponseBody stringValue="PGZvcmVjYXN0PgogPGNpdHk+JHt1cmkucGFydHNbMl19PC9jaXR5PgogPGRheTE+CiAgPHRlbXA+MjBDPC90ZW1wPgogIDxjb25kaXRpb25zPlNVTk5ZPC9jb25kaXRpb25zPgogIDxXaW5kU3BlZWQ+NSBNUEg8L1dpbmRTcGVlZD4KICA8V2luZERpcj5TT1VUSDwvV2luZERpcj4KIDwvZGF5MT4KPC9mb3JlY2FzdD4="/&gt;
+                            &lt;/L7p:HardcodedResponse&gt;
+                        &lt;/wsp:All&gt;
+                        &lt;L7p:assertionComment&gt;
+                            &lt;L7p:Properties mapValue="included"&gt;
+                                &lt;L7p:entry&gt;
+                                    &lt;L7p:key stringValue="RIGHT.COMMENT"/&gt;
+                                    &lt;L7p:value stringValue="*** Not Nice Weather"/&gt;
+                                &lt;/L7p:entry&gt;
+                            &lt;/L7p:Properties&gt;
+                        &lt;/L7p:assertionComment&gt;
+                    &lt;/wsp:OneOrMore&gt;
+                &lt;/wsp:OneOrMore&gt;
+            &lt;/wsp:All&gt;
+            &lt;wsp:All wsp:Usage="Required"&gt;
+                &lt;L7p:ComparisonAssertion&gt;
+                    &lt;L7p:Expression1 stringValue="${request.http.parameter.scale}"/&gt;
+                    &lt;L7p:Expression2 stringValue="F"/&gt;
+                    &lt;L7p:Predicates predicates="included"&gt;
+                        &lt;L7p:item binary="included"&gt;
+                            &lt;L7p:RightValue stringValue="F"/&gt;
+                        &lt;/L7p:item&gt;
+                    &lt;/L7p:Predicates&gt;
+                &lt;/L7p:ComparisonAssertion&gt;
+                &lt;wsp:OneOrMore wsp:Usage="Required"&gt;
+                    &lt;wsp:All wsp:Usage="Required"&gt;
+                        &lt;L7p:ComparisonAssertion&gt;
+                            &lt;L7p:CaseSensitive booleanValue="false"/&gt;
+                            &lt;L7p:Expression1 stringValue="${request.http.parameter.nice}"/&gt;
+                            &lt;L7p:Operator operatorNull="null"/&gt;
+                            &lt;L7p:Predicates predicates="included"&gt;
+                                &lt;L7p:item dataType="included"&gt;
+                                    &lt;L7p:Type variableDataType="string"/&gt;
+                                &lt;/L7p:item&gt;
+                                &lt;L7p:item binary="included"&gt;
+                                    &lt;L7p:RightValue stringValue="true"/&gt;
+                                &lt;/L7p:item&gt;
+                            &lt;/L7p:Predicates&gt;
+                        &lt;/L7p:ComparisonAssertion&gt;
+                        &lt;wsp:OneOrMore wsp:Usage="Required"&gt;
+                            &lt;wsp:All wsp:Usage="Required"&gt;
+                                &lt;L7p:ComparisonAssertion&gt;
+                                    &lt;L7p:CaseSensitive booleanValue="false"/&gt;
+                                    &lt;L7p:Expression1 stringValue="${request.http.parameter.period}"/&gt;
+                                    &lt;L7p:Operator operatorNull="null"/&gt;
+                                    &lt;L7p:Predicates predicates="included"&gt;
+                                    &lt;L7p:item dataType="included"&gt;
+                                    &lt;L7p:Type variableDataType="int"/&gt;
+                                    &lt;/L7p:item&gt;
+                                    &lt;L7p:item binary="included"&gt;
+                                    &lt;L7p:RightValue stringValue="5"/&gt;
+                                    &lt;/L7p:item&gt;
+                                    &lt;/L7p:Predicates&gt;
+                                &lt;/L7p:ComparisonAssertion&gt;
+                                &lt;L7p:HardcodedResponse&gt;
+                                    &lt;L7p:Base64ResponseBody stringValue="PGZvcmVjYXN0PgogPGNpdHk+JHt1cmkucGFydHNbMl19PC9jaXR5PgogPGRheTE+CiAgPHRlbXA+ODJGPC90ZW1wPgogIDxjb25kaXRpb25zPlNVTk5ZPC9jb25kaXRpb25zPgogIDxXaW5kU3BlZWQ+NSBNUEg8L1dpbmRTcGVlZD4KICA8V2luZERpcj5TT1VUSDwvV2luZERpcj4KIDwvZGF5MT4KIDxkYXkyPgogIDx0ZW1wPjgyRjwvdGVtcD4KICA8Y29uZGl0aW9ucz5TVU5OWTwvY29uZGl0aW9ucz4KICA8V2luZFNwZWVkPjUgTVBIPC9XaW5kU3BlZWQ+CiAgPFdpbmREaXI+U09VVEg8L1dpbmREaXI+CiA8L2RheTI+CiA8ZGF5Mz4KICA8dGVtcD44MkY8L3RlbXA+CiAgPGNvbmRpdGlvbnM+U1VOTlk8L2NvbmRpdGlvbnM+CiAgPFdpbmRTcGVlZD41IE1QSDwvV2luZFNwZWVkPgogIDxXaW5kRGlyPlNPVVRIPC9XaW5kRGlyPgogPC9kYXkzPgogPGRheTQ+CiAgPHRlbXA+ODJGPC90ZW1wPgogIDxjb25kaXRpb25zPlNVTk5ZPC9jb25kaXRpb25zPgogIDxXaW5kU3BlZWQ+NSBNUEg8L1dpbmRTcGVlZD4KICA8V2luZERpcj5TT1VUSDwvV2luZERpcj4KIDwvZGF5ND4KIDxkYXk1PgogIDx0ZW1wPjgyRjwvdGVtcD4KICA8Y29uZGl0aW9ucz5TVU5OWTwvY29uZGl0aW9ucz4KICA8V2luZFNwZWVkPjUgTVBIPC9XaW5kU3BlZWQ+CiAgPFdpbmREaXI+U09VVEg8L1dpbmREaXI+CiA8L2RheTU+CjwvZm9yZWNhc3Q+"/&gt;
+                                &lt;/L7p:HardcodedResponse&gt;
+                            &lt;/wsp:All&gt;
+                            &lt;wsp:All wsp:Usage="Required"&gt;
+                                &lt;L7p:ComparisonAssertion&gt;
+                                    &lt;L7p:CaseSensitive booleanValue="false"/&gt;
+                                    &lt;L7p:Expression1 stringValue="${request.http.parameter.period}"/&gt;
+                                    &lt;L7p:Operator operatorNull="null"/&gt;
+                                    &lt;L7p:Predicates predicates="included"&gt;
+                                    &lt;L7p:item dataType="included"&gt;
+                                    &lt;L7p:Type variableDataType="int"/&gt;
+                                    &lt;/L7p:item&gt;
+                                    &lt;L7p:item binary="included"&gt;
+                                    &lt;L7p:Operator operator="LT"/&gt;
+                                    &lt;L7p:RightValue stringValue="5"/&gt;
+                                    &lt;/L7p:item&gt;
+                                    &lt;/L7p:Predicates&gt;
+                                &lt;/L7p:ComparisonAssertion&gt;
+                                &lt;L7p:HardcodedResponse&gt;
+                                    &lt;L7p:Base64ResponseBody stringValue="PGZvcmVjYXN0PgogPGNpdHk+JHt1cmkucGFydHNbMl19PC9jaXR5PgogPGRheTE+CiAgPHRlbXA+ODJGPC90ZW1wPgogIDxjb25kaXRpb25zPlNVTk5ZPC9jb25kaXRpb25zPgogIDxXaW5kU3BlZWQ+NSBNUEg8L1dpbmRTcGVlZD4KICA8V2luZERpcj5TT1VUSDwvV2luZERpcj4KIDwvZGF5MT4KPC9mb3JlY2FzdD4="/&gt;
+                                &lt;/L7p:HardcodedResponse&gt;
+                            &lt;/wsp:All&gt;
+                        &lt;/wsp:OneOrMore&gt;
+                        &lt;L7p:assertionComment&gt;
+                            &lt;L7p:Properties mapValue="included"&gt;
+                                &lt;L7p:entry&gt;
+                                    &lt;L7p:key stringValue="RIGHT.COMMENT"/&gt;
+                                    &lt;L7p:value stringValue="*** Nice Weather Only"/&gt;
+                                &lt;/L7p:entry&gt;
+                            &lt;/L7p:Properties&gt;
+                        &lt;/L7p:assertionComment&gt;
+                    &lt;/wsp:All&gt;
+                    &lt;wsp:OneOrMore wsp:Usage="Required"&gt;
+                        &lt;wsp:All wsp:Usage="Required"&gt;
+                            &lt;L7p:ComparisonAssertion&gt;
+                                &lt;L7p:CaseSensitive booleanValue="false"/&gt;
+                                &lt;L7p:Expression1 stringValue="${request.http.parameter.period}"/&gt;
+                                &lt;L7p:Operator operatorNull="null"/&gt;
+                                &lt;L7p:Predicates predicates="included"&gt;
+                                    &lt;L7p:item dataType="included"&gt;
+                                    &lt;L7p:Type variableDataType="int"/&gt;
+                                    &lt;/L7p:item&gt;
+                                    &lt;L7p:item binary="included"&gt;
+                                    &lt;L7p:RightValue stringValue="5"/&gt;
+                                    &lt;/L7p:item&gt;
+                                &lt;/L7p:Predicates&gt;
+                            &lt;/L7p:ComparisonAssertion&gt;
+                            &lt;L7p:HardcodedResponse&gt;
+                                &lt;L7p:Base64ResponseBody stringValue="PGZvcmVjYXN0PgogPGNpdHk+JHt1cmkucGFydHNbMl19PC9jaXR5PgogPGRheTE+CiAgPHRlbXA+NzVGPC90ZW1wPgogIDxjb25kaXRpb25zPlNVTk5ZPC9jb25kaXRpb25zPgogIDxXaW5kU3BlZWQ+NSBNUEg8L1dpbmRTcGVlZD4KICA8V2luZERpcj5TT1VUSDwvV2luZERpcj4KIDwvZGF5MT4KIDxkYXkyPgogIDx0ZW1wPjY4RjwvdGVtcD4KICA8Y29uZGl0aW9ucz5DTE9VRFk8L2NvbmRpdGlvbnM+CiAgPFdpbmRTcGVlZD4xNSBNUEg8L1dpbmRTcGVlZD4KICA8V2luZERpcj5TT1VUSC1FQVNUPC9XaW5kRGlyPgogPC9kYXkyPgogPGRheTM+CiAgPHRlbXA+NjBGPC90ZW1wPgogIDxjb25kaXRpb25zPlJBSU48L2NvbmRpdGlvbnM+CiAgPFdpbmRTcGVlZD4yNSBNUEg8L1dpbmRTcGVlZD4KICA8V2luZERpcj5TT1VUSDwvV2luZERpcj4KIDwvZGF5Mz4KIDxkYXk0PgogIDx0ZW1wPjU1RjwvdGVtcD4KICA8Y29uZGl0aW9ucz5DTE9VRFk8L2NvbmRpdGlvbnM+CiAgPFdpbmRTcGVlZD4xNSBNUEg8L1dpbmRTcGVlZD4KICA8V2luZERpcj5TT1VUSDwvV2luZERpcj4KIDwvZGF5ND4KIDxkYXk1PgogIDx0ZW1wPjQwRjwvdGVtcD4KICA8Y29uZGl0aW9ucz5SQUlOPC9jb25kaXRpb25zPgogIDxXaW5kU3BlZWQ+NTUgTVBIPC9XaW5kU3BlZWQ+CiAgPFdpbmREaXI+Tk9SVEgtV0VTVDwvV2luZERpcj4KIDwvZGF5NT4KPC9mb3JlY2FzdD4="/&gt;
+                            &lt;/L7p:HardcodedResponse&gt;
+                        &lt;/wsp:All&gt;
+                        &lt;wsp:All wsp:Usage="Required"&gt;
+                            &lt;L7p:ComparisonAssertion&gt;
+                                &lt;L7p:CaseSensitive booleanValue="false"/&gt;
+                                &lt;L7p:Expression1 stringValue="${request.http.parameter.period}"/&gt;
+                                &lt;L7p:Operator operatorNull="null"/&gt;
+                                &lt;L7p:Predicates predicates="included"&gt;
+                                    &lt;L7p:item dataType="included"&gt;
+                                    &lt;L7p:Type variableDataType="int"/&gt;
+                                    &lt;/L7p:item&gt;
+                                    &lt;L7p:item binary="included"&gt;
+                                    &lt;L7p:Operator operator="LT"/&gt;
+                                    &lt;L7p:RightValue stringValue="5"/&gt;
+                                    &lt;/L7p:item&gt;
+                                &lt;/L7p:Predicates&gt;
+                            &lt;/L7p:ComparisonAssertion&gt;
+                            &lt;L7p:HardcodedResponse&gt;
+                                &lt;L7p:Base64ResponseBody stringValue="PGZvcmVjYXN0PgogPGNpdHk+JHt1cmkucGFydHNbMl19PC9jaXR5PgogPGRheTE+CiAgPHRlbXA+NzVGPC90ZW1wPgogIDxjb25kaXRpb25zPlNVTk5ZPC9jb25kaXRpb25zPgogIDxXaW5kU3BlZWQ+NSBNUEg8L1dpbmRTcGVlZD4KICA8V2luZERpcj5TT1VUSDwvV2luZERpcj4KIDwvZGF5MT4KPC9mb3JlY2FzdD4="/&gt;
+                            &lt;/L7p:HardcodedResponse&gt;
+                        &lt;/wsp:All&gt;
+                        &lt;L7p:assertionComment&gt;
+                            &lt;L7p:Properties mapValue="included"&gt;
+                                &lt;L7p:entry&gt;
+                                    &lt;L7p:key stringValue="RIGHT.COMMENT"/&gt;
+                                    &lt;L7p:value stringValue="*** Not Nice Weather"/&gt;
+                                &lt;/L7p:entry&gt;
+                            &lt;/L7p:Properties&gt;
+                        &lt;/L7p:assertionComment&gt;
+                    &lt;/wsp:OneOrMore&gt;
+                &lt;/wsp:OneOrMore&gt;
+            &lt;/wsp:All&gt;
+        &lt;/wsp:OneOrMore&gt;
+        &lt;wsp:OneOrMore wsp:Usage="Required"&gt;
+            &lt;wsp:All wsp:Usage="Required"&gt;
+                &lt;L7p:ComparisonAssertion&gt;
+                    &lt;L7p:Expression1 stringValue="${request.http.header.Accept}"/&gt;
+                    &lt;L7p:Expression2 stringValue="application/json"/&gt;
+                    &lt;L7p:Operator operator="CONTAINS"/&gt;
+                    &lt;L7p:Predicates predicates="included"&gt;
+                        &lt;L7p:item binary="included"&gt;
+                            &lt;L7p:Operator operator="CONTAINS"/&gt;
+                            &lt;L7p:RightValue stringValue="application/json"/&gt;
+                        &lt;/L7p:item&gt;
+                    &lt;/L7p:Predicates&gt;
+                &lt;/L7p:ComparisonAssertion&gt;
+                &lt;L7p:JsonTransformation&gt;
+                    &lt;L7p:RootTagString stringValue=""/&gt;
+                &lt;/L7p:JsonTransformation&gt;
+            &lt;/wsp:All&gt;
+            &lt;L7p:TrueAssertion/&gt;
+            &lt;L7p:assertionComment&gt;
+                &lt;L7p:Properties mapValue="included"&gt;
+                    &lt;L7p:entry&gt;
+                        &lt;L7p:key stringValue="RIGHT.COMMENT"/&gt;
+                        &lt;L7p:value stringValue="*** Transform to JSON or keep as XML"/&gt;
+                    &lt;/L7p:entry&gt;
+                &lt;/L7p:Properties&gt;
+            &lt;/L7p:assertionComment&gt;
+        &lt;/wsp:OneOrMore&gt;
+    &lt;/wsp:All&gt;
+&lt;/wsp:Policy&gt;
+</l7:Resource>
+        </l7:ResourceSet>
+    </l7:Resources>
+</l7:Service>
