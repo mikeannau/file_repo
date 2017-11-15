@@ -19,7 +19,7 @@
                 <l7:BooleanValue>false</l7:BooleanValue>
             </l7:Property>
             <l7:Property key="policyRevision">
-                <l7:LongValue>5</l7:LongValue>
+                <l7:LongValue>6</l7:LongValue>
             </l7:Property>
             <l7:Property key="soap">
                 <l7:BooleanValue>false</l7:BooleanValue>
@@ -34,9 +34,12 @@
     </l7:ServiceDetail>
     <l7:Resources>
         <l7:ResourceSet tag="policy">
-            <l7:Resource type="policy" version="4">&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+            <l7:Resource type="policy" version="5">&lt;?xml version="1.0" encoding="UTF-8"?&gt;
 &lt;wsp:Policy xmlns:L7p="http://www.layer7tech.com/ws/policy" xmlns:wsp="http://schemas.xmlsoap.org/ws/2002/12/policy"&gt;
     &lt;wsp:All wsp:Usage="Required"&gt;
+        &lt;L7p:CommentAssertion&gt;
+            &lt;L7p:Comment stringValue="I've just added a comment."/&gt;
+        &lt;/L7p:CommentAssertion&gt;
         &lt;L7p:XslTransformation&gt;
             &lt;L7p:ResourceInfo staticResourceInfo="included"&gt;
                 &lt;L7p:Document stringValueReference="inline"&gt;&lt;![CDATA[&lt;xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform"&gt;
